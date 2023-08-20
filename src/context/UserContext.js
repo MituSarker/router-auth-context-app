@@ -7,7 +7,9 @@ import app from '../components/firebase/firebase.config';
     const auth = getAuth(app);
 
 const UserContext = ({children}) => {
-        const [user,setUser]=useState({displayname:'krishna'});
+        const [user,setUser]=useState({});
+        const [loading, setLoading] = useState(true);
+
         const googleProvider = new GoogleAuthProvider();
 
         const createUser = (email, password) => {
@@ -30,6 +32,7 @@ const UserContext = ({children}) => {
             useEffect(()=>{
                 const unsubscribe =  onAuthStateChanged(auth,currentUser=>{
                     setUser(currentUser);
+                    setLoading(false);
                     console.log('auth state chang',currentUser);
                 })
                 return () => {
@@ -39,7 +42,7 @@ const UserContext = ({children}) => {
 
 
 
-    const authInfo ={user,createUser,signIn,logOut,signInWithGoogle}
+    const authInfo ={user,createUser,signIn,logOut,signInWithGoogle,loading}
 
 
     return (

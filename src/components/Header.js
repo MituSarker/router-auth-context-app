@@ -17,10 +17,11 @@ const Header = () => {
         <div>
      
 <div className="navbar bg-primary text-primary-content">
-  <Link to='/'className="btn btn-ghost normal-case text-xl">Gourgious Auth</Link>
+  <Link to='/'className="btn btn-ghost normal-case text-xl">Gorgeous Auth</Link>
   
   <Link className="btn btn-ghost normal-case text-xl" to='/'>Home</Link>
   <Link className="btn btn-ghost normal-case text-xl" to='/login'>Login</Link>
+  <Link className="btn btn-ghost normal-case text-xl" to='/orders'>Orders</Link>
   <Link className="btn btn-ghost normal-case text-xl" to='/register'>Register</Link>
   {user?.email &&<span>Welcome,{user.email}</span>}
   {
